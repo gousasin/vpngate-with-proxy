@@ -3,7 +3,7 @@
 __author__ = "duc_tin"
 __copyright__ = "Copyright 2015+, duc_tin"
 __license__ = "GPLv2"
-__version__ = "1.25"
+__version__ = "1.26"
 __maintainer__ = "duc_tin"
 __email__ = "nguyenbaduc.tin@gmail.com"
 
@@ -170,7 +170,7 @@ def get_input(s, option):
 class Setting:
     def __init__(self, path):
         self.path = path
-        self.parser = configparser.SafeConfigParser()
+        self.parser = configparser.ConfigParser()
 
         self.proxy = OrderedDict([('use_proxy', 'no'), ('address', ''),
                                   ('port', ''),

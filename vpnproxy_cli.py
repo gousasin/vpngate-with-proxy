@@ -3,7 +3,7 @@
 __author__ = "duc_tin"
 __copyright__ = "Copyright 2015+, duc_tin"
 __license__ = "GPLv2"
-__version__ = "1.36"
+__version__ = "1.37"
 __maintainer__ = "duc_tin"
 __email__ = "nguyenbaduc.tin@gmail.com"
 
@@ -291,7 +291,7 @@ def vpn_manager(ovpn):
     """
     global dns, verbose, dropped_time
 
-    command = ['openvpn', '--config', ovpn]
+    command = ['openvpn', '--data-ciphers', 'AES-256-GCM:AES-128-GCM:AES-128-CBC:CHACHA20-POLY1305', '--config', ovpn]
     p = Popen(command, stdout=PIPE, stdin=PIPE, universal_newlines=True)
     try:
         while p.poll() is None:

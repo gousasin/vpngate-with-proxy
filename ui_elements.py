@@ -3,7 +3,7 @@
 __author__ = "duc_tin"
 __copyright__ = "Copyright 2015+, duc_tin"
 __license__ = "GPLv2"
-__version__ = "1.25"
+__version__ = "1.26"
 __maintainer__ = "duc_tin"
 __email__ = "nguyenbaduc.tin@gmail.com"
 
@@ -88,7 +88,7 @@ class PopUpSortBy(urwid.WidgetWrap):
 
         self.pile = urwid.Pile([ping, speed, uptime, score], focus_item=default[self.chosen])
         fill = urwid.LineBox(urwid.Filler(self.pile))
-        self.__super.__init__(urwid.AttrWrap(fill, 'popbg'))
+        super().__init__(urwid.AttrWrap(fill, 'popbg'))
 
     def item_callback(self, Button, data=None):
         self.chosen = self.pile.focus.label
@@ -117,7 +117,7 @@ class PopUpCountry(urwid.WidgetWrap):
 
         self.pile = urwid.Pile([info]+filter_)
         fill = urwid.LineBox(urwid.Filler(self.pile))
-        self.__super.__init__(urwid.AttrWrap(fill, 'popbg'))
+        super().__init__(urwid.AttrWrap(fill, 'popbg'))
 
         self.chosen = value
 
@@ -199,7 +199,7 @@ class PopUpProxy(urwid.WidgetWrap):
 
         self.pile = urwid.Pile(widgets)
         fill = urwid.LineBox(urwid.Filler(self.pile))
-        self.__super.__init__(urwid.AttrWrap(fill, 'popbg'))
+        super().__init__(urwid.AttrWrap(fill, 'popbg'))
 
         self.chosen = value
 
@@ -265,7 +265,7 @@ class PopUpDNS(urwid.WidgetWrap):
 
         self.pile = urwid.Pile(widgets)
         fill = urwid.LineBox(urwid.Filler(self.pile))
-        self.__super.__init__(urwid.AttrWrap(fill, 'popbg'))
+        super().__init__(urwid.AttrWrap(fill, 'popbg'))
 
         self.chosen = value
 
@@ -292,14 +292,14 @@ class AddPopUp(urwid.PopUpLauncher):
     signals = ['done']
 
     def __init__(self, target_widget, popup, value, trigger, size):
-        self.__super.__init__(target_widget)
+        super().__init__(target_widget)
         self.popup = popup(key=trigger, value=value)
         self.trigger = trigger
         self.size = size
         self.result = value
 
     def create_pop_up(self):
-        # this method must be exist due to its blank content in original class
+        # this method must exist due to its blank content in original class
         urwid.connect_signal(self.popup, 'close', self.close_pop)
         return self.popup
 
